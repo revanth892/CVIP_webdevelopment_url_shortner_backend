@@ -2,7 +2,7 @@ const mongoose =require("mongoose");
 
 const Schema=mongoose.Schema;
 
-const url= new Schema({
+const urlschema= new Schema({
     short_url:{
         type:String,
         require:true,
@@ -18,4 +18,4 @@ const url= new Schema({
     }
 })
 
-module.exports=mongoose.model('Url',url);
+module.exports=mongoose.model('Url',urlschema);
