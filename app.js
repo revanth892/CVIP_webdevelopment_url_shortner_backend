@@ -1,4 +1,5 @@
 const express=require("express");
+const cors=require('cors');
 require('dotenv').config()
 const mongoose = require("mongoose");
 
@@ -6,6 +7,7 @@ const app=express();
 const router=require('./routes')
 PORT=process.env.PORT|| 8080
 const mongowebsite=`mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@cluster0.dy9fjpo.mongodb.net/?retryWrites=true&w=majority`;
+app.use(cors())
 app.use(express.json());
 app.use("/",router);
 app.listen(PORT,()=>{
