@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 router.post("/createUrl",check_duplicates,createShorturl);
-router.get("/getUrl/:id",geturl)
+router.get("/:id",geturl)
 router.get("/analytics/:id",getAnalytics)
 
 module.exports =router;
