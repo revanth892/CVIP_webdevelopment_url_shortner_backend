@@ -3,7 +3,6 @@ const Url =require("../models/URL");
 
 const check_duplicates=async(req,res,next)=>{
     let link=req.body.url;
-    console.log(link);
     const main_data=await Url.findOne({redirect_url:link});
     if(main_data)
     { 
@@ -39,7 +38,6 @@ const createShorturl=async(req,res,next)=>{
 
 const geturl=async(req,res,next)=>{
     the_id=req.params.id
-    console.log(req.params.id);
     try{
         const {redirect_url}=await Url.findOneAndUpdate({short_url:the_id},{$inc:{total_clicks:1}})
         res.redirect(redirect_url)
@@ -53,7 +51,6 @@ const geturl=async(req,res,next)=>{
 
 const getAnalytics=async(req,res,next)=>{
     the_id=req.params.id
-    console.log(req.params.id);
     try{    
         const the_data= await Url.findOne({short_url:the_id})
         return res.status(200).json({message:"data fetched succesful",data:the_data});
